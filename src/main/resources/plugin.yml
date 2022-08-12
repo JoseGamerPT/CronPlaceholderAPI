@@ -1,0 +1,6 @@
+name: CronPlaceholderAPI
+version: '${project.version}'
+main: josegamerpt.cronplaceholderapi.cronplaceholderapi.CronPlaceholderAPI
+api-version: 1.13
+
+depend: [PlaceholderAPI]

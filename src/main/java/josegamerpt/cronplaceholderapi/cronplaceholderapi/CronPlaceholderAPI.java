@@ -1,6 +1,5 @@
 package josegamerpt.cronplaceholderapi.cronplaceholderapi;
 
-import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,13 +9,10 @@ public final class CronPlaceholderAPI extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
         new CronHook().register();
-        Bukkit.getLogger().log(Level.INFO, "INFO - Cron Hook registado!");
+        Bukkit.getLogger().log(Level.INFO, "INFO CronPlaceholderAPI - Hook registado! por JoseGamer_PT");
     }
 
     @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
+    public void onDisable() { }
 }

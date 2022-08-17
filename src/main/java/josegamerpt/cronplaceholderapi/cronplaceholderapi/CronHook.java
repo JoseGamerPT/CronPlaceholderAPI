@@ -1,10 +1,7 @@
 package josegamerpt.cronplaceholderapi.cronplaceholderapi;
 
 import com.cronutils.model.Cron;
-import com.cronutils.model.definition.CronDefinition;
-import com.cronutils.model.definition.CronDefinitionBuilder;
 import com.cronutils.model.time.ExecutionTime;
-import com.cronutils.parser.CronParser;
 import org.bukkit.OfflinePlayer;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 
@@ -12,9 +9,13 @@ import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.util.Optional;
 
-import static com.cronutils.model.CronType.QUARTZ;
-
 public class CronHook extends PlaceholderExpansion {
+
+    private CronPlaceholderAPI main;
+
+    public CronHook(CronPlaceholderAPI m) {
+        this.main = m;
+    }
 
     @Override
     public String getAuthor() {
@@ -28,7 +29,7 @@ public class CronHook extends PlaceholderExpansion {
 
     @Override
     public String getVersion() {
-        return "1.0.1";
+        return "1.0.2";
     }
     
     @Override
@@ -36,10 +37,8 @@ public class CronHook extends PlaceholderExpansion {
         if (params.startsWith("ctdwn")) {
             String codigo = params.split("-")[1];
             codigo = codigo.replace("_", " ");
-            CronDefinition cronDefinition = CronDefinitionBuilder.instanceDefinitionFor(QUARTZ);
 
-            CronParser parser = new CronParser(cronDefinition);
-            Cron quartzCron = parser.parse(codigo);
+            Cron quartzCron = main.getParser().parse(codigo);
 
             ZonedDateTime now = ZonedDateTime.now();
             ExecutionTime executionTime = ExecutionTime.forCron(quartzCron);

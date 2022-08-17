@@ -6,7 +6,7 @@
 
     <groupId>josegamerpt.cronplaceholderapi</groupId>
     <artifactId>CronPlaceholderAPI</artifactId>
-    <version>13-08-2022 Custom Build 1</version>
+    <version>17-08-2022 Custom Build 1</version>
     <packaging>jar</packaging>
 
     <name>CronPlaceholderAPI</name>
